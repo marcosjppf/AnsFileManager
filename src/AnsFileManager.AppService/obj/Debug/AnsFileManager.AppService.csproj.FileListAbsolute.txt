@@ -1,0 +1,16 @@
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.AppService.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.AppService.pdb
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.Data.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.Domain.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\EntityFramework.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.Data.pdb
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.Data.dll.config
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\AnsFileManager.Domain.pdb
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\bin\Debug\EntityFramework.xml
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\obj\Debug\AnsFileManager.AppService.csprojResolveAssemblyReference.cache
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\obj\Debug\AnsFileManager.AppService.csproj.CoreCompileInputs.cache
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\obj\Debug\AnsFileManager.AppService.csproj.CopyComplete
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\obj\Debug\AnsFileManager.AppService.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.AppService\obj\Debug\AnsFileManager.AppService.pdb

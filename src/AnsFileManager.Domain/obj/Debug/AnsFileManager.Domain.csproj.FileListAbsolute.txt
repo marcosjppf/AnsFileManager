@@ -1,0 +1,8 @@
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\bin\Debug\AnsFileManager.Domain.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\bin\Debug\AnsFileManager.Domain.pdb
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.csproj.CopyComplete
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.pdb
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.csprojResolveAssemblyReference.cache
