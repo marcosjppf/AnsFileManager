@@ -20,19 +20,18 @@ namespace AnsFileManager.Domain.Entities
 
         [Column("FileName")]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         [StringLength(10)]
-        public string FileExtension { get; set; }
+        public string FileExtension { get; private set; }
+
+        public string IdOs { get; private set; }
 
         [StringLength(10)]
         public string Size { get; set; }
         
         [StringLength(255)]
         public string LocalPath { get; set; }
-
-        [Column(TypeName = "number")]
-        public string IdOs { get; set; }
 
         [Column(TypeName = "number")]
         public int CodFuncionario { get; set; }
