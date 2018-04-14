@@ -24,7 +24,7 @@ namespace AnsFileManager.WebApi.Models
             => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid();
 
         private bool NameIsValid()
-            => !string.IsNullOrWhiteSpace(FullName) && ValidFilePaths.IndexOf(FullName) > 0;
+            => !string.IsNullOrWhiteSpace(FullName) && ValidFilePaths.IndexOf(FullName) > -1;
 
         private bool FilePathIsValid()
             => string.IsNullOrWhiteSpace(FilePath) && FilePath.Length > 2;

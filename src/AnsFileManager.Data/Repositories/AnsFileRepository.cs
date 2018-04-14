@@ -18,6 +18,9 @@ namespace AnsFileManager.Data.Repositories
 
         public async Task<AnsFile> CreateAsync(AnsFile file)
         {
+            if (!file.IsValid())
+                return null;
+                
             var fileCreated = _oracleDbcontext.AnsFiles.Add(file);
             await _oracleDbcontext.SaveChangesAsync();
             return fileCreated;
@@ -55,14 +58,14 @@ namespace AnsFileManager.Data.Repositories
         public AnsFile GetFileByEmployee(string fileName, string fileExtension, string idOs, int codFuncionario)
         {
             return _oracleDbcontext.AnsFiles
-                .Where(f => f.Name == fileName && f.FileExtension == fileExtension && f.IdOs == idOs && f.CodFuncionario == codFuncionario)
+                .Where(f => f.File.FileName == fileName && f.File.Extension == fileExtension && f.IdOs == idOs && f.CodFuncionario == codFuncionario)
                 .FirstOrDefault<AnsFile>();
         }
 
         public AnsFile getFileByIdOs(string fileName, string fileExtension, string idOs)
         {
             return _oracleDbcontext.AnsFiles
-                .Where(f => f.Name == fileName && f.FileExtension == fileExtension && f.IdOs == idOs)
+                .Where(f => f.File.FileName == fileName && f.File.Extension == fileExtension && f.IdOs == idOs)
                 .FirstOrDefault<AnsFile>();
         }
     }

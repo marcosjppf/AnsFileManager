@@ -15,7 +15,7 @@ namespace AnsFileManager.AppService
         AnsFile GetFileByEmployee(string fileName, string fileExtension, string idOs, int codFuncionario);
         AnsFile getFileByIdOs(string fileName, string fileExtension, string idOs);
         Task<AnsFile> CreateAsync(AnsFile ansFile);
-        Task DeleteAsync(AnsFile file);
+        Task DeleteAsync(int id);
         Task DeleteAllFileSendedAsync();
     }
 }

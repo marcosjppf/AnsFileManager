@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AnsFile.cs" />
+    <Compile Include="Extensions\FileExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interfaces\IAnsFileRepository.cs" />
+    <Compile Include="ValueObjects\File.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,45 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System;
+using AnsFileManager.Domain.ValueObjects;
 
 namespace AnsFileManager.Domain.Entities
 {
     [Table("AnsFiles")]
     public class AnsFile
     {
-        public AnsFile(string fileName, string fileExtension, string idOs)
+        public AnsFile(string idOs, string fileName, string fileExtension, string size, string filePath, int codSeqAnexo)
         {
-            Name = fileName;
-            FileExtension = fileExtension;
+            File = new File(fileName, fileExtension, size, filePath, codSeqAnexo);
             IdOs = idOs;
+            CreatedOn = DateTime.Now;
         }
 
         [Column(TypeName = "number")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Column("FileName")]
-        [StringLength(100)]
-        public string Name { get; private set; }
-
-        [StringLength(10)]
-        public string FileExtension { get; private set; }
+        public File File { get; set; }
 
         public string IdOs { get; private set; }
 
-        [StringLength(10)]
-        public string Size { get; set; }
-        
-        [StringLength(255)]
-        public string LocalPath { get; set; }
-
         [Column(TypeName = "number")]
-        public int CodFuncionario { get; set; }
+        public int? CodFuncionario { get; set; }
 
-        [Column(TypeName = "number")]
-        public int CodSeqAnexo { get; set; }
-
-        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public DateTime CreatedOn { get; private set; }
 
         public DateTime? UpdatedOn { get; set; }
 
@@ -49,9 +35,6 @@ namespace AnsFileManager.Domain.Entities
             => SendedOn.HasValue;
 
         public bool IsValid()
-            => !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(FileExtension) && !string.IsNullOrWhiteSpace(IdOs) && CodFuncionario >= 0;
-
-        public bool IsNotValid()
-            => string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(FileExtension) || string.IsNullOrWhiteSpace(IdOs) || CodFuncionario <= 0;
+            => File.isValid() && !string.IsNullOrWhiteSpace(IdOs) && CodFuncionario >= 0;
     }
 }

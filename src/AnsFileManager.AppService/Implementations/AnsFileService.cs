@@ -16,6 +16,9 @@ namespace AnsFileManager.AppService
 
         public async Task<AnsFile> CreateAsync(AnsFile file)
         {
+            if (!file.IsValid())
+                return null;
+
             return await _ansFileRepository.CreateAsync(file);
         }
 
@@ -24,9 +27,10 @@ namespace AnsFileManager.AppService
             await _ansFileRepository.DeleteAllFileSendedAsync();
         }
 
-        public async Task DeleteAsync(AnsFile file)
+        public async Task DeleteAsync(int id)
         {
-            if (_ansFileRepository.GetByIdAsync(file.Id) != null)
+            var file = await _ansFileRepository.GetByIdAsync(id);
+            if (file != null)
                 await _ansFileRepository.DeleteAsync(file);
         }
 
@@ -50,17 +54,11 @@ namespace AnsFileManager.AppService
 
         public AnsFile GetFileByEmployee(string fileName, string fileExtension, string idOs, int codFuncionario)
         {
-            if (new AnsFile(fileName, fileExtension, idOs).IsNotValid())
-                return null;
-
             return _ansFileRepository.GetFileByEmployee(fileName, fileExtension, idOs, codFuncionario);
         }
 
         public AnsFile getFileByIdOs(string fileName, string fileExtension, string idOs)
         {
-            if (new AnsFile(fileName, fileExtension, idOs).IsNotValid())
-                return null;
-
             return _ansFileRepository.getFileByIdOs(fileName, fileExtension, idOs);
         }
     }

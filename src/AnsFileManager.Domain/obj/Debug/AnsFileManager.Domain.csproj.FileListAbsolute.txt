@@ -5,4 +5,3 @@ C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsF
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.csproj.CopyComplete
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.dll
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.pdb
-C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.Domain\obj\Debug\AnsFileManager.Domain.csprojResolveAssemblyReference.cache
