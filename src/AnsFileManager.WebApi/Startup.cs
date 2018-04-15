@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AnsFileManager.AppService;
+using AnsFileManager.Data.Repositories;
+using AnsFileManager.Domain.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,11 +21,15 @@ namespace AnsFileManager.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<IAnsFileManagerOracleDbContext>(
-            //services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(new Func<IServiceProvider, AnsFileManagerOracleDbContext>(sp =>
-            //    new AnsFileManagerOracleDbContext(Configuration.GetSection("Database")["ConnectionString"], Configuration.GetSection("Database")["Schema"])));
+            //    services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(new Func<IServiceProvider, ServiceCollection>(sp => sp.GetService
+            //        new AnsFileManagerOracleDbContext(Configuration.GetConnectionString("DefaultConnection"), Configuration.GetConnectionString("DefaultSchema")))));
 
-            //// Add framework services.
-            //services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddSingleton<IAnsFileService, AnsFileService>();
+            services.AddSingleton<IFtpClientService, FtpClientService>();
+            services.AddSingleton<IAnsFileRepository, AnsFileRepository>();
+
+            // Add framework services.
+            services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
         }
 

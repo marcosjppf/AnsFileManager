@@ -30,6 +30,9 @@ namespace AnsFileManager.Domain.ValueObjects
         [Column(TypeName = "number")]
         public int CodSeqAnexo { get; private set; }
 
+        public string FullName()
+            => string.Concat(FileName, ".", Extension);
+
         public bool isValid()
             => NameIsValid() && FilePathIsValid();
 
@@ -37,6 +40,6 @@ namespace AnsFileManager.Domain.ValueObjects
             => !string.IsNullOrWhiteSpace(FileName) && FileExtension.isValid(Extension);
 
         private bool FilePathIsValid()
-            => string.IsNullOrWhiteSpace(FilePath) && FilePath.Contains("/") && FilePath.Length > 2;
+            => string.IsNullOrWhiteSpace(FilePath) && (FilePath.Contains(@"\") || FilePath.Contains("/")) && FilePath.Length > 2;
     }
 }

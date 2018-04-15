@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using AnsFileManager.Domain.Extensions;
+using System.Collections.Generic;
 
 namespace AnsFileManager.WebApi.Models
 {
     public class FileViewModel
     {
-        private readonly List<string> ValidFilePaths = new List<string> { ".gif", ".jpg", ".doc", ".txt", ".bat", ".ppt", ".zip", ".rar", ".jpg", ".iso", ".ini", ".dll" };
-
-        public FileViewModel(string fullName, string filePath, string idOs, int codFuncionario, int codSeqAnexo)
+        public FileViewModel(string fullName, string filePath, string idOs, int codSeqAnexo, int? codFuncionario)
         {
             FullName = fullName;
             FilePath = filePath;
@@ -17,14 +16,14 @@ namespace AnsFileManager.WebApi.Models
         public string FullName { get; private set; }
         public string FilePath { get; private set; }
         public string IdOs { get; private set; }
-        public int CodFuncionario { get; private set; }
+        public int? CodFuncionario { get; private set; }
         public int CodSeqAnexo { get; private set; }
 
         public bool isValid()
             => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid();
 
         private bool NameIsValid()
-            => !string.IsNullOrWhiteSpace(FullName) && ValidFilePaths.IndexOf(FullName) > -1;
+            => !string.IsNullOrWhiteSpace(FullName) && FileExtension.isValid(FullName);
 
         private bool FilePathIsValid()
             => string.IsNullOrWhiteSpace(FilePath) && FilePath.Length > 2;

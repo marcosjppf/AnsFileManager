@@ -2,18 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AnsFileManager.AppService;
+using AnsFileManager.Domain.Entities;
+using AnsFileManager.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnsFileManager.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class AnsFileController : Controller
     {
+
+        private readonly IAnsFileService _ansFileService;
+        private readonly IFtpClientService _ftpClientService;
+
+        public AnsFileController(IAnsFileService ansFileService, IFtpClientService ftpClientService)
+        {
+            _ansFileService = ansFileService;
+            _ftpClientService = ftpClientService;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<FileViewModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            var ansFiles = _ansFileService.GetAll();
+            var files = new List<FileViewModel>();
+            if (ansFiles == null)
+                return files;
+
+            foreach (var item in ansFiles)
+                files.Add(new FileViewModel(item.File.FullName(), item.File.FilePath, item.IdOs, item.File.CodSeqAnexo, item.CodFuncionario));
+
+            return files;
         }
 
         // GET api/values/5

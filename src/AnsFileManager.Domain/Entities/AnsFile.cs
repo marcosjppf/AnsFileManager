@@ -18,7 +18,7 @@ namespace AnsFileManager.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public File File { get; set; }
+        public File File { get; private set; }
 
         public string IdOs { get; private set; }
 
