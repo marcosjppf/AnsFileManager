@@ -55,7 +55,7 @@ namespace AnsFileManager.Data.Repositories
             return _oracleDbcontext.AnsFiles.Where(f => f.IsFileSended()).ToList<AnsFile>();
         }
 
-        public AnsFile GetFileByEmployee(string fileName, string fileExtension, string idOs, int codFuncionario)
+        public AnsFile GetFileByEmployee(string fileName, string fileExtension, string idOs, int? codFuncionario)
         {
             return _oracleDbcontext.AnsFiles
                 .Where(f => f.File.FileName == fileName && f.File.Extension == fileExtension && f.IdOs == idOs && f.CodFuncionario == codFuncionario)

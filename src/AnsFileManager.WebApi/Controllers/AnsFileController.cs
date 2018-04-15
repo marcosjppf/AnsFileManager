@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AnsFileManager.AppService;
-using AnsFileManager.Domain.Entities;
 using AnsFileManager.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +26,7 @@ namespace AnsFileManager.WebApi.Controllers
             var files = new List<FileViewModel>();
             if (ansFiles == null)
                 return files;
-
+            
             foreach (var item in ansFiles)
                 files.Add(new FileViewModel(item.File.FullName(), item.File.FilePath, item.IdOs, item.File.CodSeqAnexo, item.CodFuncionario));
 

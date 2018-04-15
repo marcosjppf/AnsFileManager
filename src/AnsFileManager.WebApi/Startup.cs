@@ -1,10 +1,12 @@
 ﻿using AnsFileManager.AppService;
+using AnsFileManager.Data.Context;
 using AnsFileManager.Data.Repositories;
 using AnsFileManager.Domain.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace AnsFileManager.WebApi
 {
@@ -21,7 +23,7 @@ namespace AnsFileManager.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<IAnsFileManagerOracleDbContext>(
-            //    services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(new Func<IServiceProvider, ServiceCollection>(sp => sp.GetService
+            //    services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(new Func<IServiceProvider, ServiceCollection>(sp => 
             //        new AnsFileManagerOracleDbContext(Configuration.GetConnectionString("DefaultConnection"), Configuration.GetConnectionString("DefaultSchema")))));
 
             services.AddSingleton<IAnsFileService, AnsFileService>();
