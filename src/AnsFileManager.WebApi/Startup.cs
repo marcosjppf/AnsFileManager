@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 using System;
 
 namespace AnsFileManager.WebApi
@@ -23,8 +24,9 @@ namespace AnsFileManager.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<IAnsFileManagerOracleDbContext>(
-            //    services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(new Func<IServiceProvider, ServiceCollection>(sp => 
-            //        new AnsFileManagerOracleDbContext(Configuration.GetConnectionString("DefaultConnection"), Configuration.GetConnectionString("DefaultSchema")))));
+            //    services.AddScoped<IAnsFileManagerOracleDbContext, AnsFileManagerOracleDbContext>(
+            //        new Func<IServiceProvider, ServiceCollection>(s =>
+            //            new AnsFileManagerOracleDbContext(Configuration.GetConnectionString("DefaultConnection"), Configuration.GetConnectionString("DefaultSchema")))));
 
             services.AddSingleton<IAnsFileService, AnsFileService>();
             services.AddSingleton<IFtpClientService, FtpClientService>();
@@ -33,6 +35,11 @@ namespace AnsFileManager.WebApi
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "AnsFile Web Api", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +51,13 @@ namespace AnsFileManager.WebApi
                 app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnsFile Web Api");
+            });
 
             app.UseMvc();
         }

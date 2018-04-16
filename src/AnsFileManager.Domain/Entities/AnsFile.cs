@@ -1,21 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using AnsFileManager.Domain.ValueObjects;
+using System.ComponentModel.DataAnnotations;
 
 namespace AnsFileManager.Domain.Entities
 {
     [Table("AnsFiles")]
     public class AnsFile
     {
-        public AnsFile(string idOs, string fileName, string fileExtension, string size, string filePath, int codSeqAnexo)
+        public AnsFile(string idOs, string fileName, string fileExtension, string size, string filePath, string ftpFilePath, int codSeqAnexo)
         {
-            File = new File(fileName, fileExtension, size, filePath, codSeqAnexo);
+            File = new File(fileName, fileExtension, size, filePath, ftpFilePath, codSeqAnexo);
             IdOs = idOs;
             CreatedOn = DateTime.Now;
         }
 
-        [Column(TypeName = "number")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column("Id")]
         public int Id { get; set; }
 
         public File File { get; private set; }

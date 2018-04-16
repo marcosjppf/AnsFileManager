@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnsFileManager.Data", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnsFileManager.AppService", "src\AnsFileManager.AppService\AnsFileManager.AppService.csproj", "{BCBA162D-7969-4095-9B16-5CE21210EB18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnsFileManager.WebApi", "src\AnsFileManager.WebApi\AnsFileManager.WebApi.csproj", "{F2EE6061-6C85-4D3F-951C-CF62A48BA2CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnsFileManager.WebApi", "src\AnsFileManager.WebApi\AnsFileManager.WebApi.csproj", "{F2EE6061-6C85-4D3F-951C-CF62A48BA2CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

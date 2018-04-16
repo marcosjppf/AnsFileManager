@@ -6,12 +6,13 @@ namespace AnsFileManager.Domain.ValueObjects
 {
     public class File
     {
-        public File(string fileName, string fileExtension, string size, string filePath, int codSeqAnexo)
+        public File(string fileName, string fileExtension, string size, string filePath, string ftpFilePath, int codSeqAnexo)
         {
             FileName = fileName;
             Extension = fileExtension;
             Size = size;
             FilePath = filePath;
+            FtpFilePath = ftpFilePath;
             CodSeqAnexo = codSeqAnexo;
         }
         
@@ -26,6 +27,8 @@ namespace AnsFileManager.Domain.ValueObjects
 
         [StringLength(255)]
         public string FilePath { get; private set; }
+
+        public string FtpFilePath { get; private set; }
 
         [Column(TypeName = "number")]
         public int CodSeqAnexo { get; private set; }

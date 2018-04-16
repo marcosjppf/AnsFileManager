@@ -1,28 +1,51 @@
 ﻿using AnsFileManager.Domain.Extensions;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace AnsFileManager.WebApi.Models
 {
     public class FileViewModel
     {
-        public FileViewModel(string fullName, string filePath, string idOs, int codSeqAnexo, int? codFuncionario)
+        public FileViewModel() { }
+
+        public FileViewModel(int id, string fullName, string filePath, string ftpPath, string idOs, int codSeqAnexo, int? codFuncionario)
         {
+            Id = id;
             FullName = fullName;
             FilePath = filePath;
+            FtpPath = ftpPath;
             IdOs = idOs;
             CodFuncionario = codFuncionario;
             CodSeqAnexo = codSeqAnexo;
         }
-        public string FullName { get; private set; }
-        public string FilePath { get; private set; }
-        public string IdOs { get; private set; }
-        public int? CodFuncionario { get; private set; }
-        public int CodSeqAnexo { get; private set; }
+
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        public string FullName { get; set; }
+        [Required]
+        public string FilePath { get; set; }
+        public string FtpPath { get; set; }
+        [Required]
+        public string IdOs { get; set; }
+        public int? CodFuncionario { get; set; }
+        [Required]
+        public int CodSeqAnexo { get; set; }
+
+        public string Name()
+            => Path.GetFileName(FullName);
+
+        public string Extension()
+            => Path.GetExtension(FullName);
+
+        public string FtpPathLink()
+            => string.Concat(FtpPath, CodSeqAnexo, ".zip");
 
         public bool isValid()
-            => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid();
+            => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid() && IdOsIsValid();
 
-        private bool NameIsValid()
+        public bool NameIsValid()
             => !string.IsNullOrWhiteSpace(FullName) && FileExtension.isValid(FullName);
 
         private bool FilePathIsValid()
@@ -31,7 +54,10 @@ namespace AnsFileManager.WebApi.Models
         private bool CodSeqAnexoIsValid()
             => CodSeqAnexo > 0;
 
-        private bool CodFuncionarioIsValid()
+        public bool CodFuncionarioIsValid()
             => CodFuncionario > 0;
+
+        public bool IdOsIsValid()
+            => string.IsNullOrWhiteSpace(IdOs) && IdOs.Length > 2;
     }
 }

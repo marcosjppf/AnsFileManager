@@ -6,6 +6,8 @@ C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netc
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.AppService.dll
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.Data.dll
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.Domain.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\Oracle.ManagedDataAccess.dll
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.AppService.pdb
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.Data.pdb
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\AnsFileManager.Data.dll.config
@@ -17,7 +19,3 @@ C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\obj\Debug\netc
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\obj\Debug\netcoreapp2.0\AnsFileManager.WebApi.csproj.CopyComplete
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\obj\Debug\netcoreapp2.0\AnsFileManager.WebApi.dll
 C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\obj\Debug\netcoreapp2.0\AnsFileManager.WebApi.pdb
-C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\EntityFramework.dll
-C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\Oracle.ManagedDataAccess.EntityFramework.dll
-C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\Oracle.ManagedDataAccess.dll
-C:\Projetos\Avanade\Vale\AnsFileManager\src\AnsFileManager.WebApi\bin\Debug\netcoreapp2.0\EntityFramework.xml
