@@ -126,13 +126,7 @@ namespace AnsFileManager.WebApi.Controllers
                     return BadRequest($"Invalid parameters");
 
                 var ansFile = new AnsFile(model.IdOs, model.Name(), model.Extension(), model.FilePath, model.FtpPath, model.CodSeqAnexo);
-                var ftpClient = new FtpClientService("hostIp", "user", "pass");
-                
-                ftpClient.Upload(model.FtpPathLink(), model.LocalPathLink());
-
-                ansFile.File.Size = ftpClient.GetFileSize(ansFile.File.ZipFileName());
-                ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
-                ansFile.UpdatedOn = DateTime.Now;
+                UploadFileProcess(model, ansFile);
 
                 var ansFileCreated = await _ansFileService.CreateAsync(ansFile);
 
@@ -145,6 +139,17 @@ namespace AnsFileManager.WebApi.Controllers
             {
                 return NotFound($"Error: New File {model.FullName} not created");
             }
+        }
+
+        private static void UploadFileProcess(FileViewModel model, AnsFile ansFile)
+        {
+            var ftpClient = new FtpClientService("hostIp", "user", "pass");
+
+            ftpClient.Upload(model.FtpPathLink(), model.LocalPathLink());
+
+            ansFile.File.Size = ftpClient.GetFileSize(ansFile.File.ZipFileName());
+            ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
+            ansFile.UpdatedOn = DateTime.Now;
         }
 
         // DELETE api/AnsFile/5
