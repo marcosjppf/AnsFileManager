@@ -9,7 +9,7 @@ namespace AnsFileManager.AppService
         string[] DirectoryListDetailed(string directory);
         string[] DirectoryListSimple(string directory);
         void Download(string remoteFile, string localFile);
-        DateTime GetDateFTP(string filename, string url, string user, string pass);
+        DateTime GetDateFTP(string filename, string url);
         string GetFileCreatedDateTime(string fileName);
         string GetFileSize(string fileName);
         void Rename(string currentFileNameAndPath, string newFileName);

@@ -193,10 +193,10 @@ namespace AnsFileManager.AppService
             return;
         }
 
-        public System.DateTime GetDateFTP(string filename, string url, string user, string pass)
+        public System.DateTime GetDateFTP(string filename, string url)
         {
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url + SLASH + filename);
-            request.Credentials = new NetworkCredential(user, pass);
+            request.Credentials = new NetworkCredential(_user, _pass);
             request.Method = WebRequestMethods.Ftp.GetDateTimestamp;
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             request = null;

@@ -6,11 +6,10 @@ namespace AnsFileManager.Domain.ValueObjects
 {
     public class File
     {
-        public File(string fileName, string fileExtension, string size, string filePath, string ftpFilePath, int codSeqAnexo)
+        public File(string fileName, string fileExtension, string filePath, string ftpFilePath, int codSeqAnexo)
         {
             FileName = fileName;
             Extension = fileExtension;
-            Size = size;
             FilePath = filePath;
             FtpFilePath = ftpFilePath;
             CodSeqAnexo = codSeqAnexo;
@@ -23,7 +22,7 @@ namespace AnsFileManager.Domain.ValueObjects
         public string Extension { get; private set; }
         
         [StringLength(10)]
-        public string Size { get; private set; }
+        public string Size { get; set; }
 
         [StringLength(255)]
         public string FilePath { get; private set; }
@@ -35,6 +34,9 @@ namespace AnsFileManager.Domain.ValueObjects
 
         public string FullName()
             => string.Concat(FileName, ".", Extension);
+
+        public string ZipFileName()
+            => string.Concat(CodSeqAnexo, ".zip");
 
         public bool isValid()
             => NameIsValid() && FilePathIsValid();

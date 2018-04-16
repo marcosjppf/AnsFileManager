@@ -8,9 +8,9 @@ namespace AnsFileManager.Domain.Entities
     [Table("AnsFiles")]
     public class AnsFile
     {
-        public AnsFile(string idOs, string fileName, string fileExtension, string size, string filePath, string ftpFilePath, int codSeqAnexo)
+        public AnsFile(string idOs, string fileName, string fileExtension, string filePath, string ftpFilePath, int codSeqAnexo)
         {
-            File = new File(fileName, fileExtension, size, filePath, ftpFilePath, codSeqAnexo);
+            File = new File(fileName, fileExtension, filePath, ftpFilePath, codSeqAnexo);
             IdOs = idOs;
             CreatedOn = DateTime.Now;
         }

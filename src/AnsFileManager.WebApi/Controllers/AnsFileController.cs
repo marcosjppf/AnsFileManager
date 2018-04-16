@@ -125,8 +125,15 @@ namespace AnsFileManager.WebApi.Controllers
                 if (!model.isValid())
                     return BadRequest($"Invalid parameters");
 
-                var size = string.Empty;
-                var ansFile = new AnsFile(model.IdOs, model.Name(), model.Extension(), size, model.FilePath, model.FtpPath, model.CodSeqAnexo);
+                var ansFile = new AnsFile(model.IdOs, model.Name(), model.Extension(), model.FilePath, model.FtpPath, model.CodSeqAnexo);
+                var ftpClient = new FtpClientService("hostIp", "user", "pass");
+                
+                ftpClient.Upload(model.FtpPathLink(), model.LocalPathLink());
+
+                ansFile.File.Size = ftpClient.GetFileSize(ansFile.File.ZipFileName());
+                ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
+                ansFile.UpdatedOn = DateTime.Now;
+
                 var ansFileCreated = await _ansFileService.CreateAsync(ansFile);
 
                 if (ansFileCreated == null)
