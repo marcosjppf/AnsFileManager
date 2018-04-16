@@ -42,7 +42,7 @@ namespace AnsFileManager.WebApi.Models
         public string LocalFileLink()
             => string.Concat(FilePath, CodSeqAnexo, ".zip");
 
-        public bool isValid()
+        public bool FileVMisValid()
             => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid() && IdOsIsValid();
 
         public bool NameIsValid()

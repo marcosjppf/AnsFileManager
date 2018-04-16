@@ -123,7 +123,7 @@ namespace AnsFileManager.WebApi.Controllers
             //string FilePath, string CodSeqAnexo, string FtpPath, string IdOs, string CodFuncionario
             try
             {
-                if (!model.isValid())
+                if (!model.FileVMisValid())
                     return BadRequest($"Invalid parameters");
 
                 var ansFile = new AnsFile(model.IdOs, model.Name(), model.Extension(), model.FilePath, model.FtpPath, model.CodSeqAnexo);

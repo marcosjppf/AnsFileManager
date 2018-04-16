@@ -38,7 +38,7 @@ namespace AnsFileManager.Domain.ValueObjects
         public string ZipFileName()
             => string.Concat(CodSeqAnexo, ".zip");
 
-        public bool isValid()
+        public bool FileVOisValid()
             => NameIsValid() && FilePathIsValid();
 
         private bool NameIsValid()
