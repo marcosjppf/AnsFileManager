@@ -1,6 +1,6 @@
 ﻿namespace AnsFileManager.WebApi.Hepers
 {
-    public static class FileManagementHelper
+    public static class LocalFileManagementHelper
     {
         public static void DeleteLocalFile(string localFileLink)
         {

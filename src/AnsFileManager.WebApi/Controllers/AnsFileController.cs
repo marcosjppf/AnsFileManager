@@ -155,7 +155,7 @@ namespace AnsFileManager.WebApi.Controllers
                 ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
                 ansFile.UpdatedOn = DateTime.Now;
 
-                FileManagementHelper.DeleteLocalFile(model.LocalFileLink());
+                LocalFileManagementHelper.DeleteLocalFile(model.LocalFileLink());
             }
             catch (Exception)
             {
