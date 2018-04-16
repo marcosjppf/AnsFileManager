@@ -16,7 +16,7 @@ namespace AnsFileManager.AppService
 
         public async Task<AnsFile> CreateAsync(AnsFile file)
         {
-            if (!file.IsValid())
+            if (!file.AnsFileIsValid())
                 return null;
 
             return await _ansFileRepository.CreateAsync(file);

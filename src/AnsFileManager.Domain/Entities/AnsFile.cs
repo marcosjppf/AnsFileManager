@@ -34,7 +34,7 @@ namespace AnsFileManager.Domain.Entities
         public bool IsFileSended()
             => SendedOn.HasValue;
 
-        public bool IsValid()
+        public bool AnsFileIsValid()
             => File.FileVOisValid() && !string.IsNullOrWhiteSpace(IdOs) && CodFuncionario >= 0;
     }
 }

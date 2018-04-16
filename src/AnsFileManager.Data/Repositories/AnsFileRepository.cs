@@ -18,7 +18,7 @@ namespace AnsFileManager.Data.Repositories
 
         public async Task<AnsFile> CreateAsync(AnsFile file)
         {
-            if (!file.IsValid())
+            if (!file.AnsFileIsValid())
                 return null;
                 
             var fileCreated = _oracleDbcontext.AnsFiles.Add(file);
