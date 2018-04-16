@@ -5,6 +5,7 @@ using AnsFileManager.Domain.Entities;
 using AnsFileManager.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using AnsFileManager.WebApi.Hepers;
 
 namespace AnsFileManager.WebApi.Controllers
 {
@@ -126,6 +127,7 @@ namespace AnsFileManager.WebApi.Controllers
                     return BadRequest($"Invalid parameters");
 
                 var ansFile = new AnsFile(model.IdOs, model.Name(), model.Extension(), model.FilePath, model.FtpPath, model.CodSeqAnexo);
+
                 UploadFileProcess(model, ansFile);
 
                 var ansFileCreated = await _ansFileService.CreateAsync(ansFile);
@@ -143,13 +145,22 @@ namespace AnsFileManager.WebApi.Controllers
 
         private static void UploadFileProcess(FileViewModel model, AnsFile ansFile)
         {
-            var ftpClient = new FtpClientService("hostIp", "user", "pass");
+            try
+            {
+                var ftpClient = new FtpClientService("hostIp", "user", "pass");
 
-            ftpClient.Upload(model.FtpPathLink(), model.LocalPathLink());
+                ftpClient.Upload(model.FullName, model.LocalFileLink());
 
-            ansFile.File.Size = ftpClient.GetFileSize(ansFile.File.ZipFileName());
-            ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
-            ansFile.UpdatedOn = DateTime.Now;
+                ansFile.File.Size = ftpClient.GetFileSize(ansFile.File.ZipFileName());
+                ansFile.SendedOn = ftpClient.GetDateFTP(ansFile.File.ZipFileName(), ansFile.File.FtpFilePath);
+                ansFile.UpdatedOn = DateTime.Now;
+
+                FileManagementHelper.DeleteLocalFile(model.LocalFileLink());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE api/AnsFile/5

@@ -39,11 +39,8 @@ namespace AnsFileManager.WebApi.Models
         public string Extension()
             => Path.GetExtension(FullName);
 
-        public string LocalPathLink()
+        public string LocalFileLink()
             => string.Concat(FilePath, CodSeqAnexo, ".zip");
-
-        public string FtpPathLink()
-            => string.Concat(FtpPath, CodSeqAnexo, ".zip");
 
         public bool isValid()
             => NameIsValid() && FilePathIsValid() && CodFuncionarioIsValid() && CodSeqAnexoIsValid() && IdOsIsValid();
