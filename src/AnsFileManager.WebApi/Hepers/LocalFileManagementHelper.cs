@@ -1,10 +1,13 @@
-﻿namespace AnsFileManager.WebApi.Hepers
+﻿using System.IO;
+
+namespace AnsFileManager.WebApi.Hepers
 {
     public static class LocalFileManagementHelper
     {
         public static void DeleteLocalFile(string localFileLink)
         {
-            //TODO
+            if (File.Exists(localFileLink))
+                File.Delete(localFileLink);
         }
     }
 }
