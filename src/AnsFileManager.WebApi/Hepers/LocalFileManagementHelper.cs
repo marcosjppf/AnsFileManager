@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace AnsFileManager.WebApi.Hepers
 {
@@ -6,8 +7,16 @@ namespace AnsFileManager.WebApi.Hepers
     {
         public static void DeleteLocalFile(string localFileLink)
         {
-            if (File.Exists(localFileLink))
-                File.Delete(localFileLink);
+            try
+            {
+                if (File.Exists(localFileLink))
+                    File.Delete(localFileLink);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
     }
 }
